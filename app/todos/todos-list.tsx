@@ -1,4 +1,5 @@
-import { getFilteredTodos, getTodos } from "#/actions/todos"
+import { getFilteredTodos } from "#/actions/todos"
+//import { getTodos } from "#/actions/todos"
 import { auth } from "../auth/providers"
 import { CheckTodo } from "./check-todo"
 import { DeleteTodo } from "./delete-todo"
