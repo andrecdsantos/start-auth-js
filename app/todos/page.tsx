@@ -1,7 +1,8 @@
 import { SearchTodos } from "./search-todos";
 import { TodosList } from "./todos-list";
 
-export default function TodosPage() {
+export default function TodosPage( { searchParams} : { searchParams?: { query?: string }}) {
+  const query = searchParams?.query || ''
   return (
     <main className="w-full max-w-3xl mx-auto p-10 border rounded-md">
       <div className="flex flex-col justify-center items-center">
@@ -9,7 +10,7 @@ export default function TodosPage() {
           Esta rota é <strong>Pública</strong>, assim como a rota inicial.
         </h1>
         <SearchTodos />
-        <TodosList />
+        <TodosList query={query}/>
       </div>
   </main>
   )

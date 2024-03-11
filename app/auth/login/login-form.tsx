@@ -1,8 +1,12 @@
+'use client' //para fazer a validacao e lancar os erros
+import { authenticate } from "#/actions/users";
 import Link from "next/link";
+import { useFormState } from "react-dom";
 
 export function LoginForm() {
+  const [state, dispatch] = useFormState(authenticate, undefined)// undifined pq foi tipado a func authenticate retornar string ou undefined
   return (
-    <form className="w-fit p-10 border rounded">
+    <form className="w-fit p-10 border rounded" action={dispatch}>
       <h1 className="mb-10 font-medium text-lg text-gray-600">Faça login para continuar</h1>
       <div className="grid gap-1 mb-4">
         <label htmlFor="email" className="text-gray-600">E-mail</label>
