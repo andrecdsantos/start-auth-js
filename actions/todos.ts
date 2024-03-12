@@ -1,5 +1,6 @@
 'use server'
 
+import { Todo } from "#/types/todo"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
@@ -44,7 +45,7 @@ export async function createTodo(formData: FormData) {
     }
 } */
 
-export async function getFilteredTodos(query: string) {
+export async function getFilteredTodos(query: string): Promise<Todo[]> {
     try {
         const { rows } = await sql` 
             SELECT * 
