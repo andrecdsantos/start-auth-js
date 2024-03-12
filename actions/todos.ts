@@ -55,7 +55,7 @@ export async function getFilteredTodos(query: string) {
             ORDER BY todos.created_at DESC 
         `
         //ILIKE sem case sensitive --- %entre% texto parecido
-        return rows[0]
+        return rows
     } catch (error) {
         return { message: 'erro ao buscar todos no banco de dados.'}
     }
