@@ -45,7 +45,7 @@ export async function createTodo(formData: FormData) {
     }
 } */
 
-export async function getFilteredTodos(query: string): Promise<Todo[]> {
+export async function getFilteredTodos(query: string) {
     try {
         const { rows } = await sql` 
             SELECT * 
@@ -55,7 +55,7 @@ export async function getFilteredTodos(query: string): Promise<Todo[]> {
             ORDER BY todos.created_at DESC 
         `
         //ILIKE sem case sensitive --- %entre% texto parecido
-        return rows
+        return rows[0]
     } catch (error) {
         return { message: 'erro ao buscar todos no banco de dados.'}
     }
